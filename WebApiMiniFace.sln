@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.23107.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApiMiniFace", "WebApiMiniFace\WebApiMiniFace.csproj", "{83B23695-E4E8-4506-A546-AEF45922C5ED}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RepositorioAdapter", "RepositorioAdapter\RepositorioAdapter.csproj", "{2006D43C-64DE-4C34-89CE-C22CFCB0916A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ContactosModel", "ContactosModel\ContactosModel.csproj", "{21B83B41-6CE5-4E3B-94A0-CDECBF47D1DE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{83B23695-E4E8-4506-A546-AEF45922C5ED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{83B23695-E4E8-4506-A546-AEF45922C5ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{83B23695-E4E8-4506-A546-AEF45922C5ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{83B23695-E4E8-4506-A546-AEF45922C5ED}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2006D43C-64DE-4C34-89CE-C22CFCB0916A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2006D43C-64DE-4C34-89CE-C22CFCB0916A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2006D43C-64DE-4C34-89CE-C22CFCB0916A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2006D43C-64DE-4C34-89CE-C22CFCB0916A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{21B83B41-6CE5-4E3B-94A0-CDECBF47D1DE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{21B83B41-6CE5-4E3B-94A0-CDECBF47D1DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{21B83B41-6CE5-4E3B-94A0-CDECBF47D1DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{21B83B41-6CE5-4E3B-94A0-CDECBF47D1DE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
