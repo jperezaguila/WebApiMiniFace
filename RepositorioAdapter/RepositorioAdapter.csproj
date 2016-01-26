@@ -54,6 +54,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositorio\BaseRepositorioEntity.cs" />
     <Compile Include="Repositorio\IRepositorio.cs" />
+    <Compile Include="Repositorio\MensajeRepositorio.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

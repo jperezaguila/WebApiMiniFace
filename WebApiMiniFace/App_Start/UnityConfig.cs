@@ -21,7 +21,12 @@ namespace WebApiMiniFace
             //Siempre en este orden:
             container.RegisterType<DbContext, MiniFaceDBEntities>();
             container.RegisterType<UsuarioRepositorio>();
+            //26-01
+            container.RegisterType<MensajeRepositorio>();
+            container.RegisterType<ContactoRespositorio>();
+            //--
             GlobalConfiguration.Configuration.DependencyResolver = new UnityDependencyResolver(container);
+
         }
     }
 }
