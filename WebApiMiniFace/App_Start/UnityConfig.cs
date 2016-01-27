@@ -23,7 +23,7 @@ namespace WebApiMiniFace
             container.RegisterType<UsuarioRepositorio>();
             //26-01
             container.RegisterType<MensajeRepositorio>();
-            container.RegisterType<ContactoRespositorio>();
+            container.RegisterType<ContactoRepositorio>();
             //--
             GlobalConfiguration.Configuration.DependencyResolver = new UnityDependencyResolver(container);
 

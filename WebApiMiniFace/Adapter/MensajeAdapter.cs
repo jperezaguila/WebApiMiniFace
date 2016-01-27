@@ -12,18 +12,28 @@ namespace WebApiMiniFace.Adapter
         public override Contenido FromViewModel(MensajeModel model)
         {
             return new Contenido()
-            {
-                id = model.id,
-                
-            };
-
+         {
+             id = model.id,
+             IdDestino = model.IdDestino,
+             idOrigen = model.idOrigen,
+             asunto = model.asunto,
+             fecha = model.fecha,
+             leido = model.leido,
+             mensaje = model.mensaje
+};
         }
 
         public override MensajeModel FromModel(Contenido model)
         {
-            return new MensajeModel();
+            return new MensajeModel()
             {
-            
+                id = model.id,
+                IdDestino= model.IdDestino,
+                idOrigen = model.idOrigen,
+                asunto = model.asunto,
+                fecha = model.fecha,
+                leido = model.leido,
+                mensaje = model.mensaje
             };
         }
     }
