@@ -13,10 +13,10 @@ namespace WebApiMiniFace.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class MiniFaceDBEntities : DbContext
+    public partial class MiniFaceEntities : DbContext
     {
-        public MiniFaceDBEntities()
-            : base("name=MiniFaceDBEntities")
+        public MiniFaceEntities()
+            : base("name=MiniFaceEntities")
         {
         }
     
@@ -25,7 +25,7 @@ namespace WebApiMiniFace.Models
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<Contenido> Contenido { get; set; }
+        public virtual DbSet<Mensaje> Mensaje { get; set; }
         public virtual DbSet<Usuario> Usuario { get; set; }
     }
 }

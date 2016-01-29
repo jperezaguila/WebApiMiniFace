@@ -1,4 +1,6 @@
-﻿namespace ContactosModel.Model
+﻿using System;
+
+namespace ContactosModel.Model
 {
     public class MensajeModel
     {
@@ -9,5 +11,6 @@
         public string mensaje { get; set; }
         public bool leido { get; set; }
         public System.DateTime fecha { get; set; }
+        
     }
 }

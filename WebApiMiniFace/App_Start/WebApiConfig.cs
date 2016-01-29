@@ -15,7 +15,6 @@ namespace WebApiMiniFace
             Newtonsoft.Json.PreserveReferencesHandling.Objects;
             config.Formatters.Remove(config.Formatters.XmlFormatter);
 
-
             UnityConfig.RegisterComponents();
 
             // Web API routes

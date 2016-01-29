@@ -7,28 +7,28 @@ using WebApiMiniFace.Models;
 namespace WebApiMiniFace.Adapter
 {
 
-    public class MensajeAdapter : BaseAdapter<Contenido, MensajeModel>
+    public class MensajeAdapter : BaseAdapter<Mensaje, MensajeModel>
     {
-        public override Contenido FromViewModel(MensajeModel model)
+        public override Mensaje FromViewModel(MensajeModel model)
         {
-            return new Contenido()
-         {
-             id = model.id,
-             IdDestino = model.IdDestino,
-             idOrigen = model.idOrigen,
-             asunto = model.asunto,
-             fecha = model.fecha,
-             leido = model.leido,
-             mensaje = model.mensaje
-};
+            return new Mensaje()
+            {
+                id = model.id,
+                IdDestino = model.IdDestino,
+                idOrigen = model.idOrigen,
+                asunto = model.asunto,
+                fecha = model.fecha,
+                leido = model.leido,
+                mensaje = model.mensaje
+            };
         }
 
-        public override MensajeModel FromModel(Contenido model)
+        public override MensajeModel FromModel(Mensaje model)
         {
             return new MensajeModel()
             {
                 id = model.id,
-                IdDestino= model.IdDestino,
+                IdDestino = model.IdDestino,
                 idOrigen = model.idOrigen,
                 asunto = model.asunto,
                 fecha = model.fecha,
@@ -38,3 +38,6 @@ namespace WebApiMiniFace.Adapter
         }
     }
 }
+
+
+

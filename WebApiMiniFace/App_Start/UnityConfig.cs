@@ -19,7 +19,7 @@ namespace WebApiMiniFace
             // e.g. container.RegisterType<ITestService, TestService>();
 
             //Siempre en este orden:
-            container.RegisterType<DbContext, MiniFaceDBEntities>();
+            container.RegisterType<DbContext, MiniFaceEntities>();
             container.RegisterType<UsuarioRepositorio>();
             //26-01
             container.RegisterType<MensajeRepositorio>();

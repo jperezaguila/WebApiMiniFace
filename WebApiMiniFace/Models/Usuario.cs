@@ -17,9 +17,9 @@ namespace WebApiMiniFace.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Usuario()
         {
-            this.Enviados = new HashSet<Contenido>();
-            this.Recibidos = new HashSet<Contenido>();
-            this.Usuario1 = new HashSet<Usuario>();
+            this.Enviados = new HashSet<Mensaje>();
+            this.Recibidos = new HashSet<Mensaje>();
+            this.NoAmigo = new HashSet<Usuario>();
             this.Amigo = new HashSet<Usuario>();
         }
     
@@ -31,11 +31,11 @@ namespace WebApiMiniFace.Models
         public string foto { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Contenido> Enviados { get; set; }
+        public virtual ICollection<Mensaje> Enviados { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Contenido> Recibidos { get; set; }
+        public virtual ICollection<Mensaje> Recibidos { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Usuario> Usuario1 { get; set; }
+        public virtual ICollection<Usuario> NoAmigo { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Usuario> Amigo { get; set; }
     }

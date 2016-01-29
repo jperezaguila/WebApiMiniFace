@@ -12,7 +12,7 @@ namespace WebApiMiniFace.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Contenido
+    public partial class Mensaje
     {
         public int id { get; set; }
         public int idOrigen { get; set; }

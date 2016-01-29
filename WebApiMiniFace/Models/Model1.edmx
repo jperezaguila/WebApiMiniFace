@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="MiniFaceDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="MiniFaceModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Contacto">
           <Key>
             <PropertyRef Name="idUsuario" />
@@ -13,7 +13,7 @@
           <Property Name="idUsuario" Type="int" Nullable="false" />
           <Property Name="IdAmigo" Type="int" Nullable="false" />
         </EntityType>
-        <EntityType Name="Contenido">
+        <EntityType Name="Mensaje">
           <Key>
             <PropertyRef Name="id" />
           </Key>
@@ -62,31 +62,31 @@
         </Association>
         <Association Name="FK_Contenido_Usuario">
           <End Role="Usuario" Type="Self.Usuario" Multiplicity="1" />
-          <End Role="Contenido" Type="Self.Contenido" Multiplicity="*" />
+          <End Role="Mensaje" Type="Self.Mensaje" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Usuario">
               <PropertyRef Name="id" />
             </Principal>
-            <Dependent Role="Contenido">
+            <Dependent Role="Mensaje">
               <PropertyRef Name="idOrigen" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Contenido_Usuario1">
           <End Role="Usuario" Type="Self.Usuario" Multiplicity="1" />
-          <End Role="Contenido" Type="Self.Contenido" Multiplicity="*" />
+          <End Role="Mensaje" Type="Self.Mensaje" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Usuario">
               <PropertyRef Name="id" />
             </Principal>
-            <Dependent Role="Contenido">
+            <Dependent Role="Mensaje">
               <PropertyRef Name="IdDestino" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="MiniFaceDBModelStoreContainer">
+        <EntityContainer Name="MiniFaceModelStoreContainer">
           <EntitySet Name="Contacto" EntityType="Self.Contacto" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Contenido" EntityType="Self.Contenido" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Mensaje" EntityType="Self.Mensaje" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Usuario" EntityType="Self.Usuario" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_Contacto_Usuario" Association="Self.FK_Contacto_Usuario">
             <End Role="Usuario" EntitySet="Usuario" />
@@ -98,19 +98,19 @@
           </AssociationSet>
           <AssociationSet Name="FK_Contenido_Usuario" Association="Self.FK_Contenido_Usuario">
             <End Role="Usuario" EntitySet="Usuario" />
-            <End Role="Contenido" EntitySet="Contenido" />
+            <End Role="Mensaje" EntitySet="Mensaje" />
           </AssociationSet>
           <AssociationSet Name="FK_Contenido_Usuario1" Association="Self.FK_Contenido_Usuario1">
             <End Role="Usuario" EntitySet="Usuario" />
-            <End Role="Contenido" EntitySet="Contenido" />
+            <End Role="Mensaje" EntitySet="Mensaje" />
           </AssociationSet>
         </EntityContainer>
       </Schema>
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="MiniFaceDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityType Name="Contenido">
+      <Schema Namespace="MiniFaceModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Mensaje">
           <Key>
             <PropertyRef Name="id" />
           </Key>
@@ -121,8 +121,8 @@
           <Property Name="mensaje" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="leido" Type="Boolean" Nullable="false" />
           <Property Name="fecha" Type="DateTime" Nullable="false" Precision="3" />
-          <NavigationProperty Name="Origen" Relationship="Self.FK_Contenido_Usuario" FromRole="Contenido" ToRole="Usuario" />
-          <NavigationProperty Name="Destino" Relationship="Self.FK_Contenido_Usuario1" FromRole="Contenido" ToRole="Usuario" />
+          <NavigationProperty Name="Origen" Relationship="Self.FK_Contenido_Usuario" FromRole="Mensaje" ToRole="Usuario" />
+          <NavigationProperty Name="Destino" Relationship="Self.FK_Contenido_Usuario1" FromRole="Mensaje" ToRole="Usuario" />
         </EntityType>
         <EntityType Name="Usuario">
           <Key>
@@ -134,31 +134,31 @@
           <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="apellidos" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="foto" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
-          <NavigationProperty Name="Enviados" Relationship="Self.FK_Contenido_Usuario" FromRole="Usuario" ToRole="Contenido" />
-          <NavigationProperty Name="Recibidos" Relationship="Self.FK_Contenido_Usuario1" FromRole="Usuario" ToRole="Contenido" />
-          <NavigationProperty Name="Usuario1" Relationship="Self.Contacto" FromRole="Usuario" ToRole="Usuario1" />
+          <NavigationProperty Name="Enviados" Relationship="Self.FK_Contenido_Usuario" FromRole="Usuario" ToRole="Mensaje" />
+          <NavigationProperty Name="Recibidos" Relationship="Self.FK_Contenido_Usuario1" FromRole="Usuario" ToRole="Mensaje" />
+          <NavigationProperty Name="NoAmigo" Relationship="Self.Contacto" FromRole="Usuario" ToRole="Usuario1" />
           <NavigationProperty Name="Amigo" Relationship="Self.Contacto" FromRole="Usuario1" ToRole="Usuario" />
         </EntityType>
         <Association Name="FK_Contenido_Usuario">
           <End Role="Usuario" Type="Self.Usuario" Multiplicity="1" />
-          <End Role="Contenido" Type="Self.Contenido" Multiplicity="*" />
+          <End Role="Mensaje" Type="Self.Mensaje" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Usuario">
               <PropertyRef Name="id" />
             </Principal>
-            <Dependent Role="Contenido">
+            <Dependent Role="Mensaje">
               <PropertyRef Name="idOrigen" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Contenido_Usuario1">
           <End Role="Usuario" Type="Self.Usuario" Multiplicity="1" />
-          <End Role="Contenido" Type="Self.Contenido" Multiplicity="*" />
+          <End Role="Mensaje" Type="Self.Mensaje" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Usuario">
               <PropertyRef Name="id" />
             </Principal>
-            <Dependent Role="Contenido">
+            <Dependent Role="Mensaje">
               <PropertyRef Name="IdDestino" />
             </Dependent>
           </ReferentialConstraint>
@@ -167,16 +167,16 @@
           <End Role="Usuario" Type="Self.Usuario" Multiplicity="*" />
           <End Role="Usuario1" Type="Self.Usuario" Multiplicity="*" />
         </Association>
-        <EntityContainer Name="MiniFaceDBEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="Contenido" EntityType="Self.Contenido" />
+        <EntityContainer Name="MiniFaceEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Mensaje" EntityType="Self.Mensaje" />
           <EntitySet Name="Usuario" EntityType="Self.Usuario" />
           <AssociationSet Name="FK_Contenido_Usuario" Association="Self.FK_Contenido_Usuario">
             <End Role="Usuario" EntitySet="Usuario" />
-            <End Role="Contenido" EntitySet="Contenido" />
+            <End Role="Mensaje" EntitySet="Mensaje" />
           </AssociationSet>
           <AssociationSet Name="FK_Contenido_Usuario1" Association="Self.FK_Contenido_Usuario1">
             <End Role="Usuario" EntitySet="Usuario" />
-            <End Role="Contenido" EntitySet="Contenido" />
+            <End Role="Mensaje" EntitySet="Mensaje" />
           </AssociationSet>
           <AssociationSet Name="Contacto" Association="Self.Contacto">
             <End Role="Usuario" EntitySet="Usuario" />
@@ -188,10 +188,10 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="MiniFaceDBModelStoreContainer" CdmEntityContainer="MiniFaceDBEntities">
-          <EntitySetMapping Name="Contenido">
-            <EntityTypeMapping TypeName="MiniFaceDBModel.Contenido">
-              <MappingFragment StoreEntitySet="Contenido">
+        <EntityContainerMapping StorageEntityContainer="MiniFaceModelStoreContainer" CdmEntityContainer="MiniFaceEntities">
+          <EntitySetMapping Name="Mensaje">
+            <EntityTypeMapping TypeName="MiniFaceModel.Mensaje">
+              <MappingFragment StoreEntitySet="Mensaje">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="idOrigen" ColumnName="idOrigen" />
                 <ScalarProperty Name="IdDestino" ColumnName="IdDestino" />
@@ -203,7 +203,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Usuario">
-            <EntityTypeMapping TypeName="MiniFaceDBModel.Usuario">
+            <EntityTypeMapping TypeName="MiniFaceModel.Usuario">
               <MappingFragment StoreEntitySet="Usuario">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="login" ColumnName="login" />
@@ -214,7 +214,7 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <AssociationSetMapping Name="Contacto" TypeName="MiniFaceDBModel.Contacto" StoreEntitySet="Contacto">
+          <AssociationSetMapping Name="Contacto" TypeName="MiniFaceModel.Contacto" StoreEntitySet="Contacto">
             <EndProperty Name="Usuario">
               <ScalarProperty Name="id" ColumnName="idUsuario" />
             </EndProperty>
